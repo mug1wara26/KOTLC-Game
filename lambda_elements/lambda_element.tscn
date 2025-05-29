@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://dlwqrsnl15ffd"]
+
+[ext_resource type="Texture2D" uid="uid://du34frvw51vmq" path="res://icon.svg" id="1_u2fv7"]
+[ext_resource type="Script" uid="uid://d0iad3j0wt1od" path="res://lambda_elements/lambda_element.gd" id="2_f360q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nmysy"]
+size = Vector2(148, 148)
+
+[node name="DragTest" type="TextureRect"]
+offset_right = 128.0
+offset_bottom = 128.0
+texture = ExtResource("1_u2fv7")
+script = ExtResource("2_f360q")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(64, 64)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_nmysy")
+disabled = true
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
