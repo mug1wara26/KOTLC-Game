@@ -11,7 +11,8 @@ func _get_drag_data(position):
   var drag_preview = Control.new()
   drag_preview.add_child(texture)
   set_drag_preview(drag_preview)
-  self.hide()
+  if not source:
+    self.hide()
   # Return the drag data as a dictionary (could be expanded later)
   return {
     "type": class_string,
