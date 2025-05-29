@@ -5,24 +5,24 @@ static var class_string = "LambdaElement"
 
 var element_scene = preload("res://lambda_elements/lambda_element.tscn")
 
-func _get_drag_data(position):
+func _get_drag_data(pos):
   # Create a drag preview Control node (TextureRect, for example)
-  var texture: LambdaElement = element_scene.instantiate()
-  texture.texture = self.texture  # Use the same texture
-  texture.position = -position
-  texture.enable_collision()
+  var preview: LambdaElement = element_scene.instantiate()
+  preview.texture = self.texture  # Use the same texture
+  preview.position = -pos
+  preview.enable_collision()
   
   if source:
-    texture.source = true
+    preview.source = true
     
   var drag_preview = Control.new()
-  drag_preview.add_child(texture)
+  drag_preview.add_child(preview)
   set_drag_preview(drag_preview)
   
   # Return the drag data as a dictionary (could be expanded later)
   return {
     "type": class_string,
-    "offset": -position,
+    "offset": -pos,
     "source": self
   }
 
