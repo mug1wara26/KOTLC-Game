@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://eonb7n5epd67"]
 
-[ext_resource type="PackedScene" uid="uid://dlwqrsnl15ffd" path="res://drag_test.tscn" id="1_scvx3"]
+[ext_resource type="PackedScene" uid="uid://dlwqrsnl15ffd" path="res://lambda_element_test.tscn" id="1_scvx3"]
 [ext_resource type="Script" uid="uid://dhwyixtgok0yw" path="res://main_layout.gd" id="2_gvg4e"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_scvx3"]
@@ -71,6 +71,7 @@ alignment = 1
 
 [node name="DragTest" parent="VBoxContainer/Game/ScrollContainer/CenterContainer/VBoxContainer" instance=ExtResource("1_scvx3")]
 layout_mode = 2
+source = true
 
 [node name="MainLayout" type="Control" parent="VBoxContainer/Game"]
 layout_mode = 2
