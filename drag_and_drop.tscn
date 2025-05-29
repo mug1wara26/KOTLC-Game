@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=3 uid="uid://cxgvdg76j2t2f"]
+
+[ext_resource type="PackedScene" uid="uid://dlwqrsnl15ffd" path="res://lambda_elements/lambda_element_test.tscn" id="1_f8nf7"]
+[ext_resource type="Script" uid="uid://d2jsm15p65cfn" path="res://sub_viewport_container.gd" id="3_cdpr6"]
+[ext_resource type="Script" uid="uid://djdewn26ogq4i" path="res://sub_viewport.gd" id="4_mi6kv"]
+[ext_resource type="Script" uid="uid://c7gl58vwbylix" path="res://center.gd" id="4_ve37o"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gvg4e"]
+bg_color = Color(0.670986, 0.591747, 0.414254, 1)
+
+[node name="Game" type="HBoxContainer"]
+size_flags_vertical = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+clip_contents = false
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_gvg4e")
+
+[node name="CenterContainer" type="CenterContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/CenterContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="DragTest" parent="ScrollContainer/CenterContainer/VBoxContainer" instance=ExtResource("1_f8nf7")]
+layout_mode = 2
+source = true
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_target = true
+script = ExtResource("3_cdpr6")
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
+render_target_update_mode = 4
+script = ExtResource("4_mi6kv")
+
+[node name="Center" type="Marker2D" parent="SubViewportContainer/SubViewport"]
+script = ExtResource("4_ve37o")
+
+[node name="Camera2D" type="Camera2D" parent="SubViewportContainer/SubViewport/Center"]
+
+[connection signal="drop_data" from="SubViewportContainer" to="SubViewportContainer/SubViewport" method="_on_sub_viewport_container_drop_data"]
