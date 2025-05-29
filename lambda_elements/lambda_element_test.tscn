@@ -1,8 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://dlwqrsnl15ffd"]
-
-[ext_resource type="Texture2D" uid="uid://du34frvw51vmq" path="res://icon.svg" id="1_nqxis"]
-[ext_resource type="Script" uid="uid://d0iad3j0wt1od" path="res://lambda_elements/lambda_element.gd" id="2_h15le"]
-
-[node name="DragTest" type="TextureRect"]
-texture = ExtResource("1_nqxis")
-script = ExtResource("2_h15le")

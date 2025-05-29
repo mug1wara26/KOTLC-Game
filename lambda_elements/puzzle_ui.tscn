@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://eonb7n5epd67"]
 
-[ext_resource type="PackedScene" uid="uid://cxgvdg76j2t2f" path="res://drag_and_drop.tscn" id="1_s8g4s"]
+[ext_resource type="PackedScene" uid="uid://cxgvdg76j2t2f" path="res://drag_and_drop/drag_and_drop.tscn" id="1_s8g4s"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_scvx3"]
 bg_color = Color(0.220064, 0.152564, 0.109371, 1)

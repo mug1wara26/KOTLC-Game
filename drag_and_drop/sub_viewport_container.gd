@@ -3,8 +3,10 @@ extends SubViewportContainer
 signal drop_data(position, data)
 
 func _can_drop_data(position, data) -> bool:
-  return (typeof(data) == TYPE_DICTIONARY 
-    && data.get("type") == LambdaElement.class_string)
+  if typeof(data) == TYPE_DICTIONARY:
+    var dragged: LambdaElement = data.get("dragged")
+    return data.get("type") == LambdaElement.class_string
+  return false
 
 func _drop_data(position, data):
   drop_data.emit(position, data)
