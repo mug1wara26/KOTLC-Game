@@ -9,6 +9,7 @@
 bg_color = Color(0.670986, 0.591747, 0.414254, 1)
 
 [node name="Game" type="HBoxContainer"]
+offset_right = 150.0
 size_flags_vertical = 3
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
@@ -36,6 +37,7 @@ source = true
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 3
 mouse_target = true
 script = ExtResource("3_cdpr6")
 

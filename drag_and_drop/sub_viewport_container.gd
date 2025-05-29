@@ -2,6 +2,7 @@ extends SubViewportContainer
 
 signal drop_data(position, data)
 
+
 func _can_drop_data(position, data) -> bool:
   if typeof(data) == TYPE_DICTIONARY:
     var dragged: LambdaElement = data.get("dragged")
