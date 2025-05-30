@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://dn7yc4qq01he8"]
+[gd_scene load_steps=3 format=3 uid="uid://qkpwi6124urr"]
 
 [ext_resource type="Texture2D" uid="uid://du34frvw51vmq" path="res://icon.svg" id="1_gvo43"]
 [ext_resource type="Script" uid="uid://d0iad3j0wt1od" path="res://lambda_elements/lambda_element.gd" id="2_xthof"]
@@ -26,7 +26,6 @@ alignment = 1
 layout_mode = 2
 texture = ExtResource("1_gvo43")
 script = ExtResource("2_xthof")
-source = true
 metadata/_custom_type_script = "uid://d0iad3j0wt1od"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Margin/VBoxContainer"]

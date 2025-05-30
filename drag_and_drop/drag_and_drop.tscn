@@ -30,7 +30,7 @@ theme_override_constants/margin_top = 10
 layout_mode = 2
 alignment = 1
 
-[node name="DragTest" parent="ScrollContainer/CenterContainer/MarginContainer/VBoxContainer" instance=ExtResource("1_f8nf7")]
+[node name="LambdaElementSource" parent="ScrollContainer/CenterContainer/MarginContainer/VBoxContainer" instance=ExtResource("1_f8nf7")]
 layout_mode = 2
 source = true
 

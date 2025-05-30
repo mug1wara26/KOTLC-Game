@@ -6,7 +6,8 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nmysy"]
 size = Vector2(148, 148)
 
-[node name="DragTest" type="TextureRect"]
+[node name="LambdaElement" type="TextureRect"]
+z_index = 1
 offset_right = 128.0
 offset_bottom = 128.0
 texture = ExtResource("1_u2fv7")

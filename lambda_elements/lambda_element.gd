@@ -1,59 +1,40 @@
 class_name LambdaElement extends TextureRect
 
 static var class_string = "LambdaElement"
-var dragged: bool = false
+var drag_offset = null
 var element_scene = preload("res://lambda_elements/lambda_element.tscn")
 
-@onready var new_viewport = get_node("../../../../../SubViewportContainer/SubViewport")
 @export var source: bool = false
 
 func _process(_delta: float) -> void:
-  if source and dragged:
-    if Input.is_mouse_button_pressed(1):
-      position = get_global_mouse_position()
+  if drag_offset != null:
+    print("_process")
+    if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+      print("pos update")
+      position = get_global_mouse_position() - drag_offset
     if Input.is_action_just_released("lmb"):
-      queue_free()
+      drag_offset = null
 
 func _get_drag_data(pos):
-  # Create a drag preview Control node (TextureRect, for example)
-<<<<<<< HEAD
-  var preview: LambdaElement = element_scene.instantiate()
-  preview.texture = self.texture  # Use the same texture
-  preview.position = -pos
-  preview.enable_collision()
-  
   if source:
-    preview.source = true
+    var preview = self.duplicate(8)
+    preview.position = -pos
+    # preview.enable_collision()
+      
     
-  var drag_preview = Control.new()
-  drag_preview.add_child(preview)
-  set_drag_preview(drag_preview)
-=======
-  var texture: LambdaElement = element_scene.instantiate()
-  texture.texture = load("res://icon.svg")
-  texture.position = -position
-  texture.enable_collision()
-  texture.dragged = true
-  
-  var drag_preview = Control.new()
-  drag_preview.add_child(texture)
-  
-  if source:
-    texture.source = true
-    new_viewport.add_child(drag_preview)
-  else:
+    var drag_preview = Control.new()
+    print(preview.visible)
+    drag_preview.add_child(preview)
     set_drag_preview(drag_preview)
-  
-  self.disable_collision()
-  
->>>>>>> abc60da25503c1d844f532143455fbb0ba45b72b
-  
-  # Return the drag data as a dictionary (could be expanded later)
-  return {
-    "type": class_string,
-    "offset": -pos,
-    "source": self
-  }
+    
+    return {
+      "type": class_string,
+      "offset": -pos,
+      "source": self
+    }
+  else:
+    drag_offset = pos
+    return null
 
 func _notification(what: int) -> void:
   if (what == NOTIFICATION_DRAG_END):
@@ -65,5 +46,5 @@ func disable_collision() ->  void:
   $Area2D/CollisionShape2D.set_deferred("disabled", true) 
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
-  if not dragged:
+  if drag_offset != null:
     print("area_entered", area)
