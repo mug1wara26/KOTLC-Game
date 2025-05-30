@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://blmhax08elutc"]
+
+[ext_resource type="Texture2D" uid="uid://du34frvw51vmq" path="res://icon.svg" id="1_qfb7q"]
+
+[node name="LambdaTexture" type="TextureRect"]
+z_index = 1
+offset_right = 128.0
+offset_bottom = 128.0
+texture = ExtResource("1_qfb7q")
