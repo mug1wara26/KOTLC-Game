@@ -32,6 +32,7 @@ layout_mode = 2
 alignment = 1
 
 [node name="LambdaTexture" parent="ScrollContainer/CenterContainer/MarginContainer/VBoxContainer" instance=ExtResource("1_lltjt")]
+layout_mode = 2
 script = ExtResource("2_fl83o")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]

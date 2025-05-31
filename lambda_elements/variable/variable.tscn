@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://be76fymkfc67b"]
+
+[ext_resource type="Script" uid="uid://xpcysq5t5111" path="res://lambda_elements/variable/variable.gd" id="1_aojbf"]
+
+[node name="Variable" type="MarginContainer"]
+offset_right = 51.0
+offset_bottom = 73.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 25
+script = ExtResource("1_aojbf")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer"]
+layout_mode = 2
+horizontal_alignment = 1
+vertical_alignment = 1
