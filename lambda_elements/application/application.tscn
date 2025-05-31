@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://qkpwi6124urr"]
+
+[ext_resource type="Script" uid="uid://cw3r1uagctbu3" path="res://lambda_elements/application/application.gd" id="1_xnsmf"]
+[ext_resource type="Script" uid="uid://cvoaodtcvwl0l" path="res://lambda_elements/application/application_container.gd" id="2_m0kgk"]
+
+[node name="Application" type="MarginContainer"]
+offset_right = 20.0
+offset_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_xnsmf")
+
+[node name="ApplicationContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+script = ExtResource("2_m0kgk")

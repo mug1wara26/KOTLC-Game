@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://cxgvdg76j2t2f"]
+[gd_scene load_steps=7 format=3 uid="uid://cxgvdg76j2t2f"]
 
-[ext_resource type="PackedScene" uid="uid://dlwqrsnl15ffd" path="res://lambda_elements/lambda_element.tscn" id="1_f8nf7"]
+[ext_resource type="PackedScene" uid="uid://cv07iqr70qnhp" path="res://lambda_elements/draggable_element/draggable_source.tscn" id="1_lltjt"]
+[ext_resource type="Texture2D" uid="uid://cih36tr8nbhpg" path="res://assets/lambda.svg" id="2_lltjt"]
 [ext_resource type="Script" uid="uid://d2jsm15p65cfn" path="res://drag_and_drop/sub_viewport_container.gd" id="3_cdpr6"]
 [ext_resource type="Script" uid="uid://djdewn26ogq4i" path="res://drag_and_drop/sub_viewport.gd" id="4_mi6kv"]
 [ext_resource type="Script" uid="uid://c7gl58vwbylix" path="res://drag_and_drop/center.gd" id="4_ve37o"]
@@ -30,9 +31,9 @@ theme_override_constants/margin_top = 10
 layout_mode = 2
 alignment = 1
 
-[node name="LambdaElementSource" parent="ScrollContainer/CenterContainer/MarginContainer/VBoxContainer" instance=ExtResource("1_f8nf7")]
+[node name="DraggableSource" parent="ScrollContainer/CenterContainer/MarginContainer/VBoxContainer" instance=ExtResource("1_lltjt")]
 layout_mode = 2
-source = true
+texture = ExtResource("2_lltjt")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
 layout_mode = 2

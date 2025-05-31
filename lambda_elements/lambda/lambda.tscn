@@ -1,0 +1,58 @@
+[gd_scene load_steps=8 format=3 uid="uid://byuebqthykrrh"]
+
+[ext_resource type="Script" uid="uid://yoefj2bsusun" path="res://lambda_elements/lambda/lambda_container.gd" id="1_mji5b"]
+[ext_resource type="Script" uid="uid://bqcrune8xpq2x" path="res://lambda_elements/lambda/lambda.gd" id="2_1g1xh"]
+[ext_resource type="Texture2D" uid="uid://cih36tr8nbhpg" path="res://assets/lambda.svg" id="2_e7eeo"]
+[ext_resource type="Script" uid="uid://v6ngyctrh22m" path="res://lambda_elements/lambda/area_left.gd" id="5_0c5nh"]
+[ext_resource type="Script" uid="uid://buy3tq5kl1enp" path="res://lambda_elements/lambda/area_down.gd" id="5_mn8bt"]
+[ext_resource type="Script" uid="uid://blc65vyxsa0ao" path="res://lambda_elements/lambda/area_right.gd" id="6_5ankv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1g1xh"]
+
+[node name="LambdaContainer" type="MarginContainer"]
+offset_right = 10.0
+offset_bottom = 10.0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+script = ExtResource("1_mji5b")
+
+[node name="Lambda" type="VBoxContainer" parent="."]
+layout_mode = 2
+script = ExtResource("2_1g1xh")
+
+[node name="TextureRect" type="TextureRect" parent="Lambda"]
+layout_mode = 2
+texture = ExtResource("2_e7eeo")
+stretch_mode = 2
+
+[node name="AreaDown" type="Area2D" parent="Lambda"]
+position = Vector2(42.5, 95)
+script = ExtResource("5_mn8bt")
+
+[node name="CollisionDown" type="CollisionShape2D" parent="Lambda/AreaDown"]
+shape = SubResource("RectangleShape2D_1g1xh")
+
+[node name="AreaLeft" type="Area2D" parent="Lambda"]
+position = Vector2(-10, 42.5)
+script = ExtResource("5_0c5nh")
+
+[node name="CollisionLeft" type="CollisionShape2D" parent="Lambda/AreaLeft"]
+shape = SubResource("RectangleShape2D_1g1xh")
+
+[node name="AreaRight" type="Area2D" parent="Lambda"]
+position = Vector2(95, 42.5)
+script = ExtResource("6_5ankv")
+
+[node name="CollisionRight" type="CollisionShape2D" parent="Lambda/AreaRight"]
+shape = SubResource("RectangleShape2D_1g1xh")
+
+[connection signal="area_entered" from="Lambda/AreaDown" to="Lambda" method="_on_area_down_area_entered"]
+[connection signal="area_exited" from="Lambda/AreaDown" to="Lambda" method="_on_area_down_area_exited"]
+[connection signal="create_lambda" from="Lambda/AreaDown" to="Lambda" method="_on_area_down_create_lambda"]
+[connection signal="area_entered" from="Lambda/AreaLeft" to="." method="_on_area_left_area_entered"]
+[connection signal="area_exited" from="Lambda/AreaLeft" to="." method="_on_area_left_area_exited"]
+[connection signal="create_lambda" from="Lambda/AreaLeft" to="." method="_on_area_left_create_lambda"]
+[connection signal="area_entered" from="Lambda/AreaRight" to="." method="_on_area_right_area_entered"]
+[connection signal="area_exited" from="Lambda/AreaRight" to="." method="_on_area_right_area_exited"]
+[connection signal="create_lambda" from="Lambda/AreaRight" to="." method="_on_area_right_create_lambda"]

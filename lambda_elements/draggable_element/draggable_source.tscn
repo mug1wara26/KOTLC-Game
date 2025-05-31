@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cv07iqr70qnhp"]
+
+[ext_resource type="Script" uid="uid://cquyyhshf8stg" path="res://lambda_elements/draggable_element/draggable_source.gd" id="1_laiem"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ad2ua"]
+
+[node name="DraggableSource" type="TextureRect"]
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_laiem")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_ad2ua")
+disabled = true
