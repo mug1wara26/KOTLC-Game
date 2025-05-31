@@ -1,9 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://qkpwi6124urr"]
+[gd_scene load_steps=5 format=3 uid="uid://qkpwi6124urr"]
 
 [ext_resource type="Script" uid="uid://cw3r1uagctbu3" path="res://lambda_elements/application/application.gd" id="1_xnsmf"]
 [ext_resource type="Script" uid="uid://cvoaodtcvwl0l" path="res://lambda_elements/application/application_container.gd" id="2_m0kgk"]
+[ext_resource type="Script" uid="uid://hwabc1o8662d" path="res://lambda_elements/application/application_area.gd" id="3_huw6y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m0kgk"]
 
 [node name="Application" type="MarginContainer"]
+custom_minimum_size = Vector2(100, 0)
 offset_right = 20.0
 offset_bottom = 20.0
 size_flags_horizontal = 3
@@ -13,3 +17,10 @@ script = ExtResource("1_xnsmf")
 [node name="ApplicationContainer" type="HBoxContainer" parent="."]
 layout_mode = 2
 script = ExtResource("2_m0kgk")
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("3_huw6y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_m0kgk")
+debug_color = Color(0.0316436, 0.650637, 0, 0.42)

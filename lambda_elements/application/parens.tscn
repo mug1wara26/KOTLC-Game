@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://ccffjm82llmw0"]
+
+[ext_resource type="Texture2D" uid="uid://bp5xf61ydsfwx" path="res://assets/kenny_runepack/PNG/Grey/Slab (outline)/runeGrey_slabOutline_034.png" id="1_lgtl6"]
+[ext_resource type="PackedScene" uid="uid://qkpwi6124urr" path="res://lambda_elements/application/application.tscn" id="2_epx8j"]
+
+[node name="Parens" type="HBoxContainer"]
+
+[node name="BracketLeft" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("1_lgtl6")
+
+[node name="Application" parent="." instance=ExtResource("2_epx8j")]
+layout_mode = 2
+
+[node name="BracketRight" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("1_lgtl6")
+flip_h = true

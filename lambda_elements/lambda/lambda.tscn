@@ -4,8 +4,8 @@
 [ext_resource type="Script" uid="uid://bqcrune8xpq2x" path="res://lambda_elements/lambda/lambda.gd" id="2_1g1xh"]
 [ext_resource type="Texture2D" uid="uid://cih36tr8nbhpg" path="res://assets/lambda.svg" id="2_e7eeo"]
 [ext_resource type="Script" uid="uid://v6ngyctrh22m" path="res://lambda_elements/lambda/area_left.gd" id="5_0c5nh"]
-[ext_resource type="Script" uid="uid://buy3tq5kl1enp" path="res://lambda_elements/lambda/area_down.gd" id="5_mn8bt"]
 [ext_resource type="Script" uid="uid://blc65vyxsa0ao" path="res://lambda_elements/lambda/area_right.gd" id="6_5ankv"]
+[ext_resource type="PackedScene" uid="uid://ccffjm82llmw0" path="res://lambda_elements/application/parens.tscn" id="7_mn8bt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1g1xh"]
 
@@ -26,13 +26,6 @@ layout_mode = 2
 texture = ExtResource("2_e7eeo")
 stretch_mode = 2
 
-[node name="AreaDown" type="Area2D" parent="Lambda"]
-position = Vector2(42.5, 95)
-script = ExtResource("5_mn8bt")
-
-[node name="CollisionDown" type="CollisionShape2D" parent="Lambda/AreaDown"]
-shape = SubResource("RectangleShape2D_1g1xh")
-
 [node name="AreaLeft" type="Area2D" parent="Lambda"]
 position = Vector2(-10, 42.5)
 script = ExtResource("5_0c5nh")
@@ -47,9 +40,9 @@ script = ExtResource("6_5ankv")
 [node name="CollisionRight" type="CollisionShape2D" parent="Lambda/AreaRight"]
 shape = SubResource("RectangleShape2D_1g1xh")
 
-[connection signal="area_entered" from="Lambda/AreaDown" to="Lambda" method="_on_area_down_area_entered"]
-[connection signal="area_exited" from="Lambda/AreaDown" to="Lambda" method="_on_area_down_area_exited"]
-[connection signal="create_lambda" from="Lambda/AreaDown" to="Lambda" method="_on_area_down_create_lambda"]
+[node name="Parens" parent="Lambda" instance=ExtResource("7_mn8bt")]
+layout_mode = 2
+
 [connection signal="area_entered" from="Lambda/AreaLeft" to="." method="_on_area_left_area_entered"]
 [connection signal="area_exited" from="Lambda/AreaLeft" to="." method="_on_area_left_area_exited"]
 [connection signal="create_lambda" from="Lambda/AreaLeft" to="." method="_on_area_left_create_lambda"]
